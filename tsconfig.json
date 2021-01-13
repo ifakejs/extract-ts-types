@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "baseUrl": ".",
     "outDir": ".",
-    "rootDir": ".",
+    /* "rootDir": "src", 如果不写单元测试即__test__ 需要打开此项 */
     "target": "es5",
-    "module": "ESNEXT",
+    "module": "esnext",
     "lib": ["es2015", "es2016", "es2017", "dom"],
     "downlevelIteration": true,
     "strict": true,
-    "declaration": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -19,18 +19,18 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "./src/*",
+    "src",
     "__test__"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "build",
-    "lib",
-    "examples"
+    "lib"
   ]
 }

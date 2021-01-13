@@ -4,9 +4,11 @@ import babel from '@rollup/plugin-babel'
 import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import typescript from '@rollup/plugin-typescript'
-import pkg from './package.json'
+import * as path from 'path'
 
-const isDev = process.env.NODE_ENV !== 'production'
+const pkg = require('./package.json')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 export default {
   input: './src/index.ts',
@@ -14,7 +16,8 @@ export default {
     {
       file: pkg.main,
       format: 'umd',
-      name: 'example'
+      name: 'Example',
+      exports: 'named'
     },
     {
       file: pkg.module,
@@ -32,7 +35,7 @@ export default {
     json(),
     !isDev && terser(),
     typescript({
-      tsconfig: './tsconfig.json'
+      tsconfig: path.resolve(__dirname, './tsconfig.json')
     })
   ]
 }
