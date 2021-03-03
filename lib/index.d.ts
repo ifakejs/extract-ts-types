@@ -1,6 +1,6 @@
 
-export declare type FlattenType = any[];
+declare type FlattenType = any[];
 
-export declare function pkgAdd(): FlattenType;
+export declare function pkgAdd(arr: any[]): FlattenType;
 
 export { }
